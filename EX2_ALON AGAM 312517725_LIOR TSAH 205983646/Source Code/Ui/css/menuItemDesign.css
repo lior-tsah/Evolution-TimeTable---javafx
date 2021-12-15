@@ -1,0 +1,4 @@
+.menu-item {
+    -fx-min-width: 150;
+    -fx-pref-width: 150;
+}

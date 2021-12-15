@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1084.0" style="-fx-background-color: Beige;" stylesheets="@../css/menuItemDesign.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.SettingsController">
+   <top>
+      <Label text="Settings" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="47.0" />
+         </font>
+      </Label>
+   </top>
+   <left>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="applySettingsButton" disable="true" minWidth="170.0" mnemonicParsing="false" onAction="#onClickApplyButton" prefWidth="170.0" stylesheets="@../css/design.css" text="Apply Changes" />
+            <Button fx:id="backButton" layoutX="10.0" layoutY="342.0" minWidth="170.0" mnemonicParsing="false" onAction="#onClickBackWindow" prefWidth="170.0" stylesheets="@../css/design.css" text="Back" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <GridPane alignment="CENTER" gridLinesVisible="true" maxHeight="600.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="0.0" prefWidth="61.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="540.0" minWidth="0.0" prefWidth="203.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="788.0" minWidth="10.0" prefWidth="539.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="222.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="272.0" minHeight="10.0" prefHeight="238.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="371.0" minHeight="10.0" prefHeight="371.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="179.0" prefWidth="405.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <CheckBox fx:id="selectionTypeCheckBox" mnemonicParsing="false" onAction="#onClickSelectionCheckBox" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="145.0" prefWidth="170.0" spacing="10.0" GridPane.columnIndex="1">
+               <children>
+                  <Label text="Selection">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="-30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <MenuButton fx:id="selectionTypeMenu" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="141.0" layoutY="117.0" mnemonicParsing="false" prefWidth="200.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <items>
+                        <MenuItem fx:id="truncationMenuItem" mnemonicParsing="false" onAction="#truncationChooseAction" text="Truncation" />
+                        <MenuItem fx:id="rouletteWheelMenuItem" mnemonicParsing="false" onAction="#rouletteWheelChooseAction" text="Roulette Wheel" />
+                     </items>
+                  </MenuButton>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="252.0" prefWidth="180.0" GridPane.rowIndex="1">
+               <children>
+                  <CheckBox fx:id="crossoverTypeCheckBox" layoutX="199.0" layoutY="122.0" mnemonicParsing="false" onAction="#onClickCrossoverCheckBox" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Crossover">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="-30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <MenuButton fx:id="crossoverTypeMenu" alignment="CENTER" disable="true" layoutX="138.0" layoutY="117.0" mnemonicParsing="false" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <items>
+                        <MenuItem fx:id="aspectOrientedMenuItem" mnemonicParsing="false" onAction="#aspectOrientedChooseAction" text="Aspect Oriented" />
+                        <MenuItem fx:id="dayTimeOrientedMenuItem" mnemonicParsing="false" onAction="#dayTimeOrientedChooseAction" text="Day Time Oriented" />
+                     </items>
+                  </MenuButton>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" GridPane.rowIndex="2">
+               <children>
+                  <CheckBox fx:id="mutationTypeCheckBox" mnemonicParsing="false" onAction="#onClickMutationCheckBox" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Label text="Mutation">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="-30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <MenuButton fx:id="mutationTypeMenu" alignment="CENTER" disable="true" mnemonicParsing="false" prefWidth="200.0">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#flippingChooseAction" text="Flipping" />
+                        <MenuItem mnemonicParsing="false" onAction="#sizerChooseAction" text="Sizer" />
+                     </items>
+                  </MenuButton>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="200.0" prefHeight="200.0" spacing="20.0" GridPane.columnIndex="2">
+               <children>
+                  <Label fx:id="topPercentLabel" alignment="CENTER" contentDisplay="CENTER" text="Top Percent" visible="false" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Slider fx:id="topPercentSlideBar" blockIncrement="0.0" majorTickUnit="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="50.0" visible="false" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="10.0" right="20.0" top="-20.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <Label fx:id="elitismLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="94.0" layoutY="10.0" text="Elitism (%)" visible="false" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="-20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Slider fx:id="elitismSlideBar" blockIncrement="0.0" layoutX="10.0" layoutY="57.0" majorTickUnit="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="50.0" visible="false" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets left="10.0" right="20.0" top="-25.0" />
+                     </VBox.margin>
+                  </Slider>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="200.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="cuttingPointsLabel" alignment="CENTER" text="Cutting Points" visible="false" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="-20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Slider fx:id="cuttingPointsSlideBar" blockIncrement="0.0" majorTickUnit="3.0" max="30.0" min="1.0" minorTickCount="2" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="15.0" visible="false" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets right="20.0" top="-15.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <HBox alignment="CENTER" spacing="10.0" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="aspectLabel" text="Aspect:" visible="false">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <MenuButton fx:id="aspectMenu" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="150.0" text="Class" textAlignment="JUSTIFY" visible="false">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#classAspectChooseAction" text="CLASS" />
+                              <MenuItem mnemonicParsing="false" onAction="#teacherAspectChooseAction" text="TEACHER" />
+                           </items>
+                        </MenuButton>
+                     </children>
+                  </HBox>
+               </children>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="150.0" prefHeight="150.0" spacing="30.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Label fx:id="probabilityLabel" alignment="CENTER" text="Probability" visible="false" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Slider fx:id="probabilitySlideBar" blockIncrement="0.0" majorTickUnit="0.1" max="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.5" visible="false" VBox.vgrow="NEVER">
+                     <padding>
+                        <Insets top="-20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="20.0" top="-15.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <HBox alignment="CENTER" spacing="10.0" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets top="-20.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="componentLabel" text="Component:" visible="false">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <MenuButton fx:id="componentMenu" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="150.0" text="H" textAlignment="JUSTIFY" visible="false">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#hourComponentChooseAction" text="H" />
+                              <MenuItem mnemonicParsing="false" onAction="#dayComponentChooseAction" text="D" />
+                              <MenuItem mnemonicParsing="false" onAction="#subjectComponentChooseAction" text="S" />
+                              <MenuItem mnemonicParsing="false" onAction="#teacherComponentChooseAction" text="T" />
+                              <MenuItem mnemonicParsing="false" onAction="#classComponentChooseAction" text="C" />
+                           </items>
+                        </MenuButton>
+                     </children>
+                  </HBox>
+                  <Label fx:id="maxTupplesLabel" alignment="CENTER" layoutX="234.0" layoutY="10.0" text="Max Tupples" visible="false" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="-15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Slider fx:id="maxTupplesSlideBar" blockIncrement="0.0" layoutX="10.0" layoutY="50.0" majorTickUnit="1.0" max="20.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" visible="false" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets left="10.0" right="20.0" top="-30.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <Label fx:id="totalTupplesLabel" alignment="CENTER" layoutX="226.0" layoutY="168.0" text="Total Tupples" visible="false" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="-25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Slider fx:id="totalTupplesSlideBar" blockIncrement="0.0" majorTickUnit="2.0" max="20.0" min="-20.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" visible="false" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets left="10.0" right="20.0" top="-30.0" />
+                     </VBox.margin>
+                  </Slider>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets right="20.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+</BorderPane>
